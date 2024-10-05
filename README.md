@@ -33,18 +33,17 @@ This script downloads captions (subtitles) from Bilibili videos and saves them i
 ## Usage
 
 1. Open the `bilibili_caption_downloader.py` file.
-2. Replace the URL in the `parse_bvid` function call with the Bilibili video URL you want to download captions from.
-3. Fill in your own **SESSDATA** value
+2. . Fill in your own **SESSDATA** value
 Go to [Bilibili](https://www.bilibili.com/) and use F12 to inspect your website.
 And click Application >> Cookie to find your SESSDATA as follow and paste it to the code.
-![image](https://github.com/user-attachments/assets/4f027c3f-82cf-4588-a0be-5873b22158c8)
-4. Run the script:
+![image](https://github.com/user-attachments/assets/92653779-baf2-447c-9978-15f7df9add6e)
+3. Run the script:
 
     ```sh
     python bilibili_caption_downloader.py
     ```
 
-5. The script will download the captions and save them in the current directory with the video title as the filename.
+4. The script will download the captions and save them in the current directory with the video title as the filename.
 
 
 
