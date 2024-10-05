@@ -5,7 +5,7 @@ import time
 requests.packages.urllib3.disable_warnings()
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'}
-headers['Cookie'] = os.environ["Cookie"]
+headers['Cookie'] = 'SESSDATA=your_SESSDATA_here'
 def safe_httpget(url):
 	r = requests.get (url, headers=headers)
 	time.sleep(1)
@@ -44,6 +44,7 @@ def download(bvid):
 			start_time = time.strftime('%H:%M:%S', time.gmtime(body['from']))
 			end_time = time.strftime('%H:%M:%S', time.gmtime(body['to']))
 			f.write(f"{start_time} --> {end_time}\n{body['content']}\n\n")
-bvid = parse_bvid('https://www.bilibili.com/video/BV1nPxTeyE2t/?spm_id_from=333.1007.tianma.5-4-18.click')
-print(bvid)
+	print(f"Downloaded {video_title}.txt")
+url = input('Enter the URL of the bilibili video: ')
+bvid = parse_bvid(url)
 download(bvid)
