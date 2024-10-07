@@ -5,7 +5,7 @@ import time
 requests.packages.urllib3.disable_warnings()
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'}
-headers['Cookie'] = 'SESSDATA=your_SESSDATA_here'
+headers['Cookie'] = 'SESSDATA=1bd55a3f%2C1743849764%2C78b14%2Aa1CjAaMafVM5-ngL4wd1K_RcXeYuwlvLboCmdoV8lRNXcIAnKiwPz4fFmpWsgD1j70W4USVk1uOFZac3BwN1RTbXBoeExDMmUwNUtta3RFVzZNZmc4MUhtM18tWEtoSXRVTG9ZQjhTdGtZU1dOOExaQTJRT1hSVkg0X2R1QkdQcHFvdURlMW1lbG5RIIEC'
 def safe_httpget(url):
 	r = requests.get (url, headers=headers)
 	time.sleep(1)
@@ -13,6 +13,10 @@ def safe_httpget(url):
 def parse_bvid(url):
 	if 'bilibili.com' in url:
 		bvid = url.split('video/')[1].split('?')[0]
+		if not bvid.startswith('BV'):
+			bvid = url.split('video/')[1].split('/?')[0]
+			if not bvid.startswith('BV'):
+				print('Invalid URL')
 		return bvid
 	else:
 		return url
@@ -47,4 +51,5 @@ def download(bvid):
 	print(f"Downloaded {video_title}.txt")
 url = input('Enter the URL of the bilibili video: ')
 bvid = parse_bvid(url)
+print(bvid)
 download(bvid)
