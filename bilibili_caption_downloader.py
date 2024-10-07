@@ -12,7 +12,7 @@ def safe_httpget(url):
 	return r.text
 def parse_bvid(url):
 	if 'bilibili.com' in url:
-		bvid = url.split('video/')[1].split('/?')[0]
+		bvid = url.split('video/')[1].split('?')[0]
 		return bvid
 	else:
 		return url
